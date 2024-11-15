@@ -1,13 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './App';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
-
+import HomeLayout from './layouts/HomeLayout';
+import UserListPage from './components/UserListPage';
+import InsertUpdateUser from './components/InsertUpdateUser';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomeLayout/>} >
+          <Route index element={<UserListPage/>} />
+          <Route path="update/:id" element={<InsertUpdateUser/>} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
