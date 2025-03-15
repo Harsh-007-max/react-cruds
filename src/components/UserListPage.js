@@ -17,7 +17,7 @@ export default function UserListPage(){
       {method: 'DELETE'})
       .then(response => response.json())
       .then(data => {
-        setUsers(users.filter(user=>user.PersonID != id));
+        setUsers(users.filter(user=>user.PersonID !== id));
       });
   };
   const openInEdit=id=>navigate(`/update/${id}`);
